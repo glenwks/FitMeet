@@ -14,8 +14,9 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
         <activity
-            android:name="com.is306.fitmeettwo.MainActivity"
-            android:label="@string/app_name" >
+            android:name="com.is306.fitmeet.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,21 +24,52 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.is306.fitmeettwo.CreateEventActivity"
-            android:label="@string/title_activity_create_event"
-            android:parentActivityName="com.is306.fitmeettwo.MainActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.is306.fitmeettwo.MainActivity" />
+            android:name="com.is306.fitmeet.MainActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.is306.fitmeettwo.AddFriendsActivity"
-            android:label="@string/title_activity_add_friends"
-            android:parentActivityName="android.support.v4.app.FragmentActivity" >
+            android:name="com.is306.fitmeet.CreateEventActivity"
+            android:label="@string/title_activity_create_event"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="android.support.v4.app.FragmentActivity" />
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.AddFriendsActivity"
+            android:label="@string/title_activity_add_friends"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="com.is306.fitmeet.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.LoginActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.FAQActivity"
+            android:label="@string/title_activity_faq"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
         </activity>
     </application>
 

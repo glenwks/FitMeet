@@ -18,22 +18,24 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/faq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_click_faq"
             android:background="@drawable/list_design"
             android:clickable="true"
+            android:onClick="faqPage"
             android:padding="12dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_click_about"
             android:background="@drawable/list_design"
             android:clickable="true"
+            android:onClick="aboutPage"
             android:padding="12dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
@@ -56,6 +58,7 @@
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="36dp"
         android:clickable="true"
+        android:onClick="profileSettings"
         android:background="@drawable/list_design"
         android:text="@string/setting_click_profile"
         android:padding="12dp"
@@ -65,9 +68,11 @@
         android:id="@+id/event_add_event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="logoutProcess" 
         android:layout_below="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
-        android:text="@string/settings_button_logout" />
+        android:text="@string/settings_button_logout"/>
+        
 
 </RelativeLayout>
