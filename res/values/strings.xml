@@ -61,4 +61,55 @@
 	<string name="facilities_locations">Location</string>
 	<string name="facilities_sch_cc">School / Community Centres</string>
 	<string name="facilities_date">Date</string>
+	
+	 <string-array name="facilities">
+		<item>Basketball Court</item>
+		<item>Tennis Court</item>
+		<item>Badminton Court</item>
+		<item>Squash Court</item>
+		<item>Futsal Field</item>
+		<item>Table Tennis Court</item>
+		<item>Netball Court</item>
+		<item>Floorball Court</item>
+		<item>Volleyball Court</item>
+		<item>Hockey Field</item>
+		<item>Tchouk Ball Court</item>
+	</string-array>
+	
+    <string-array name="recommended_friends">
+		<item>Ah Seng</item>
+		<item>Ah Lian</item>
+		<item>Ah Huay</item>
+		<item>Roger</item>
+		<item>Lionel</item>
+		<item>Valentino</item>
+		<item>Mark</item>
+		<item>Rooney</item>
+		<item>Ah Meng</item>
+		<item>Rafael</item>
+		<item>Andy</item>
+	</string-array>
+	
+    <string-array name="events">
+		<item>17/10/2013 Basketball @ 7:00pm</item>
+		<item>23/10/2013 Badminton @ 9:00pm</item>
+		<item>27/10/2013 Futsal @ 8:00pm</item>
+		<item>30/10/2013 Tennis @ 6:00pm</item>
+		<item>10/11/2013 Squash @ 10:00pm</item>
+	</string-array>
+	
+    <string-array name="location">
+		<item>Bedok Sports Hall</item>
+		<item>Bishan Sports Hall</item>
+		<item>Bukit Gombak Sports Hall</item>
+		<item>CCAB (Co-Curricular Activities Branch, MOE) Sports Hall</item>
+		<item>Clementi Sports Hall</item>
+		<item>Choa Chu Kang Sports Hall</item>
+		<item>Delta Sports Hall</item>
+		<item>Hougang Sports Hal</item>
+		<item>Jurong East Sports Hall</item>
+		<item>Jurong West Sports Hall</item>
+		<item>Yio Chu Kang Sports Hall</item>
+		<item>Yishun Sports Hall</item>
+	</string-array>
 </resources>
