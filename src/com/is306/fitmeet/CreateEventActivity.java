@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
-import android.support.v4.app.NavUtils;
 import com.is306.fitmeet.R;
 
 
@@ -25,11 +24,11 @@ public class CreateEventActivity extends Activity {
 	static final int START_TIME_DIALOG_ID= 2;
 	static final int END_TIME_DIALOG_ID= 3;
 	
-	public  int year,month,day,hour,minute;  
+	public  int year,month,day,hour;
+	public String minute;  
 	public  int yearSelected,monthSelected,daySelected,hourSelected,minuteSelected;
 	private int mYear, mMonth, mDay, mHour, mMinute; 
 	
-	@SuppressWarnings("deprecation")
 	public CreateEventActivity(){
 		final Calendar c = Calendar.getInstance();
 	    mYear = c.get(Calendar.YEAR);
@@ -56,7 +55,8 @@ public class CreateEventActivity extends Activity {
         // Set ClickListener on btnSelectDate
         btnSelectStartDate.setOnClickListener(new View.OnClickListener() {
            
-            public void onClick(View v) {
+            @SuppressWarnings("deprecation")
+			public void onClick(View v) {
                 // Show the DatePickerDialog
                  showDialog(START_DATE_DIALOG_ID);
             }
@@ -64,7 +64,8 @@ public class CreateEventActivity extends Activity {
         
         btnSelectEndDate.setOnClickListener(new View.OnClickListener() {
             
-            public void onClick(View v) {
+            @SuppressWarnings("deprecation")
+			public void onClick(View v) {
                 // Show the DatePickerDialog
                  showDialog(END_DATE_DIALOG_ID);
             }
@@ -73,7 +74,8 @@ public class CreateEventActivity extends Activity {
         // Set ClickListener on btnSelectTime
         btnSelectStartTime.setOnClickListener(new View.OnClickListener() {
            
-            public void onClick(View v) {
+            @SuppressWarnings("deprecation")
+			public void onClick(View v) {
                 // Show the TimePickerDialog
                  showDialog(START_TIME_DIALOG_ID);
             }
@@ -81,7 +83,8 @@ public class CreateEventActivity extends Activity {
         
         btnSelectEndTime.setOnClickListener(new View.OnClickListener() {
             
-            public void onClick(View v) {
+            @SuppressWarnings("deprecation")
+			public void onClick(View v) {
                 // Show the TimePickerDialog
                  showDialog(END_TIME_DIALOG_ID);
             }
@@ -115,7 +118,7 @@ public class CreateEventActivity extends Activity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			NavUtils.navigateUpFromSameTask(this);
+			onBackPressed();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -152,10 +155,25 @@ public class CreateEventActivity extends Activity {
 	    new TimePickerDialog.OnTimeSetListener() {
 	 		// the callback received when the user "sets" the TimePickerDialog in the dialog
 	        public void onTimeSet(TimePicker view, int hourOfDay, int min) {
-	            hour = hourOfDay;
-	            minute = min;
+	            String amPM = "AM";
+	            if(hourOfDay>12){
+	            	hour = hourOfDay - 12;
+	            	amPM ="PM";
+	            }else if(hourOfDay==12){
+	            	hour = hourOfDay;
+	            	amPM = "PM";
+	            }else{
+	            	hour = hourOfDay;
+	            }
+	        	
+	            if(min<10){
+	            	minute="0"+Integer.toString(min);
+	            }else{
+	            	minute=Integer.toString(min);
+	            }
+	            
 	            // Set the Selected Date in Select date Button
-	            btnSelectStartTime.setText(hour+":"+minute);
+	            btnSelectStartTime.setText(hour+":"+minute+" "+ amPM);
 	          }
 	    };
     
@@ -163,10 +181,26 @@ public class CreateEventActivity extends Activity {
 	    new TimePickerDialog.OnTimeSetListener() {
 	 		// the callback received when the user "sets" the TimePickerDialog in the dialog
 	        public void onTimeSet(TimePicker view, int hourOfDay, int min) {
-	            hour = hourOfDay;
-	            minute = min;
+	            
+	            String amPM = "AM";
+	            if(hourOfDay>12){
+	            	hour = hourOfDay - 12;
+	            	amPM ="PM";
+	            }else if(hourOfDay==12){
+	            	hour = hourOfDay;
+	            	amPM = "PM";
+	            }else{
+	            	hour = hourOfDay;
+	            }
+	        	
+	            if(min<10){
+	            	minute="0"+Integer.toString(min);
+	            }else{
+	            	minute=Integer.toString(min);
+	            }
+	            
 	            // Set the Selected Date in Select date Button
-	            btnSelectEndTime.setText(hour+":"+minute);
+	            btnSelectEndTime.setText(hour+":"+minute+" "+ amPM);
 	          }
 	    };
 

@@ -5,14 +5,13 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 //import android.support.v4.app.NavUtils;
-import com.is306.fitmeet.R;
 
-public class AddFriendsActivity extends Activity {
+public class ProfileActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_friends);
+		setContentView(R.layout.activity_profile);
 		// Show the Up button in the action bar.
 		setupActionBar();
 	}
@@ -29,7 +28,7 @@ public class AddFriendsActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_friends, menu);
+		getMenuInflater().inflate(R.menu.profile, menu);
 		return true;
 	}
 

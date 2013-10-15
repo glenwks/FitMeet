@@ -28,7 +28,7 @@ public class MainActivity extends FragmentActivity {
             public void onTabChanged(String tabId) {
                 android.support.v4.app.FragmentManager fm =   getSupportFragmentManager();
                 CalendarFragment calendarFragment = (CalendarFragment) fm.findFragmentByTag("calendar");
-                PlanFragment planFragment = (PlanFragment) fm.findFragmentByTag("plan");
+                //PlanFragment planFragment = (PlanFragment) fm.findFragmentByTag("plan");
                 FacilitiesFragment facilitiesFragment = (FacilitiesFragment) fm.findFragmentByTag("facilities");
                 FriendsFragment friendsFragment = (FriendsFragment) fm.findFragmentByTag("friends");
                 SettingsFragment settingsFragment = (SettingsFragment) fm.findFragmentByTag("settings");
@@ -40,8 +40,8 @@ public class MainActivity extends FragmentActivity {
                     ft.detach(calendarFragment);
  
                 /** Detaches the planFragment if exists */
-                if(planFragment!=null)
-                    ft.detach(planFragment);
+                //if(planFragment!=null)
+                   // ft.detach(planFragment);
                 
                 /** Detaches the facilitiesFragment if exists */
                 if(facilitiesFragment!=null)
@@ -64,19 +64,21 @@ public class MainActivity extends FragmentActivity {
                     }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(calendarFragment);
+                        ft.addToBackStack(null);
                     }
                     
-                }else if(tabId.equalsIgnoreCase("plan")){
-                	setTitle("Plan");
-                	if(planFragment==null){
-                        /** Create PlanFragment and adding to fragmenttransaction */
-                        ft.add(R.id.realtabcontent,new PlanFragment(), "plan");
-                    }else{
-                        /** Bring to the front, if already exists in the fragmenttransaction */
-                        ft.attach(planFragment);
-                    }
+                }//else if(tabId.equalsIgnoreCase("plan")){
+                	//setTitle("Plan");
+                	//if(planFragment==null){
+                      //  /** Create PlanFragment and adding to fragmenttransaction */
+                        //ft.add(R.id.realtabcontent,new PlanFragment(), "plan");
+                    //}else{
+                      //  /** Bring to the front, if already exists in the fragmenttransaction */
+                        //ft.attach(planFragment);
+                    //}
                 	
-                }else if(tabId.equalsIgnoreCase("facilities")){
+                //}
+                else if(tabId.equalsIgnoreCase("facilities")){
                 	setTitle("Facilities");
                 	if(facilitiesFragment==null){
                         /** Create FacilitiesFragment and adding to fragmenttransaction */
@@ -84,6 +86,7 @@ public class MainActivity extends FragmentActivity {
                     }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(facilitiesFragment);
+                       ft.addToBackStack(null);
                     }
                 	
                 }else if(tabId.equalsIgnoreCase("friends")){
@@ -94,6 +97,7 @@ public class MainActivity extends FragmentActivity {
                     }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(friendsFragment);
+                        ft.addToBackStack(null);
                     }
                 	
                 }else if(tabId.equalsIgnoreCase("settings")){    /** If current tab is apple */
@@ -104,6 +108,7 @@ public class MainActivity extends FragmentActivity {
                      }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(settingsFragment);
+                        ft.addToBackStack(null);
                     }
                 }else{
                 	setTitle("Fit Meet");
@@ -121,11 +126,11 @@ public class MainActivity extends FragmentActivity {
         tSpecCalendar.setContent(new DummyTabContent(getBaseContext()));
         tHost.addTab(tSpecCalendar);
  
-        /** Defining tab builder for Plan tab */
-        TabHost.TabSpec tSpecPlan = tHost.newTabSpec("plan");
-        tSpecPlan.setIndicator("",getResources().getDrawable(R.drawable.icon_plan));
-        tSpecPlan.setContent(new DummyTabContent(getBaseContext()));
-        tHost.addTab(tSpecPlan);
+        ///** Defining tab builder for Plan tab */
+        //TabHost.TabSpec tSpecPlan = tHost.newTabSpec("plan");
+        //tSpecPlan.setIndicator("",getResources().getDrawable(R.drawable.icon_plan));
+        //tSpecPlan.setContent(new DummyTabContent(getBaseContext()));
+        //tHost.addTab(tSpecPlan);
         
         /** Defining tab builder for Facilities tab */
         TabHost.TabSpec tSpecFacilities = tHost.newTabSpec("facilities");
@@ -156,13 +161,13 @@ public class MainActivity extends FragmentActivity {
             menu.clear();
             inflater.inflate(R.menu.calendar, menu);
         }
+        //else if(currentTab == 1){
+            //menu.clear();
+            //inflater.inflate(R.menu.plan, menu);}
         else if(currentTab == 1){
-            menu.clear();
-            inflater.inflate(R.menu.plan, menu);}
-        else if(currentTab == 2){
         	menu.clear();
         	inflater.inflate(R.menu.facilities, menu);}
-        else if(currentTab == 3){
+        else if(currentTab == 2){
         	menu.clear();
         	inflater.inflate(R.menu.friends, menu);}
         else{
@@ -187,6 +192,10 @@ public class MainActivity extends FragmentActivity {
 	    }
 	}
 	
+	@Override
+	public void onBackPressed() {
+	}
+	
 
 	public void faqPage(View view){
 		Intent intent = new Intent(this, FAQActivity.class);
@@ -199,7 +208,8 @@ public class MainActivity extends FragmentActivity {
 	}
 	
 	public void profileSettings(View view){
-		
+		Intent intent = new Intent(this, ProfileActivity.class);
+		startActivity(intent);
 	}
 	
 	public void logoutProcess(View view){

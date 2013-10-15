@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="16"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -66,6 +66,14 @@
         <activity
             android:name="com.is306.fitmeet.AboutActivity"
             android:label="@string/title_activity_about"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.ProfileActivity"
+            android:label="@string/title_activity_profile"
             android:parentActivityName="com.is306.fitmeet.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
