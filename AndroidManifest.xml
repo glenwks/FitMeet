@@ -79,6 +79,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.is306.fitmeet.MainActivity" />
         </activity>
+        <activity
+            android:name="com.is306.fitmeet.FriendProfileActivity"
+            android:label="@string/title_activity_friend_profile"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,20 +1,62 @@
 package com.is306.fitmeet;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 //import android.support.v4.app.NavUtils;
 import com.is306.fitmeet.R;
 
 public class AddFriendsActivity extends Activity {
+	
+	TextView noRecommendation;
+	TextView noSearchResults;
+	ListView recommendedListView;
+	ListView searchResults;
+	ArrayAdapter<String> adapterRecommend;
+	ArrayAdapter<String> searchRslt;
+	
+	String[] recommendedFriends = new String[]{
+			"test",
+			"test1",
+			"test2",
+			"test3"			
+	};
+	
+	ArrayList<String> searchedResults = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_friends);
+		noRecommendation = (TextView)this.findViewById(R.id.no_recommended_results);
+		noSearchResults = (TextView)this.findViewById(R.id.no_search_results);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		if(recommendedFriends.length==0){
+			noRecommendation.setText("No recommendations found");
+		}else{
+			noRecommendation.setText("");
+			recommendedListView = (ListView) this.findViewById(R.id.recommended_list);
+			adapterRecommend = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, recommendedFriends);
+			recommendedListView.setAdapter(adapterRecommend);
+		}
+		
+		if(searchedResults.size()==0){
+			noSearchResults.setText("No results found");
+		}else{
+			noSearchResults.setText("");
+			searchResults = (ListView) this.findViewById(R.id.searched_list);
+			searchRslt = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, searchedResults);
+			searchResults.setAdapter(searchRslt);
+		}
+		
 	}
 
 	/**

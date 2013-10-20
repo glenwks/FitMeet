@@ -39,7 +39,7 @@ import android.widget.Toast;
 	        	 convertView = inflater.inflate(R.layout.activity_faq_list, null);
 	        }
 	 
-	        textView = (TextView) convertView.findViewById(R.id.textView1);
+	        textView = (TextView) convertView.findViewById(R.id.recommended_friends_title);
 	        textView.setText(child.get(childPosition));
 	 
 	        convertView.setOnClickListener(new OnClickListener() {

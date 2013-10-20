@@ -1,5 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
+	<item
+        android:id="@+id/action_add_friends_search"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:icon="@drawable/ic_menu_search"
+        android:title="@string/action_search"
+        android:actionViewClass="android.widget.SearchView"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

@@ -114,7 +114,7 @@
 
     <string name="title_activity_profile">Profile</string>
     <string name="facilities_date_button"></string>
-    <string name="profile_name_title">"Name : "</string>
+    <string name="profile_name_title">Name : </string>
     <string name="profile_gender_title">Gender :</string>
     <string name="profile_age_title">Age :</string>
     <string name="profile_hobbies_title">Hobbies :</string>
@@ -124,5 +124,14 @@
     <string name="profile_hobbies">Basketball, Running</string>
     <string name="profile_hobbies_hint">e.g Basketball, Tennis, Golf, Running</string>
     <string name="profile_update_button">Update Profile</string>
+    <string name="recommended_friends">Recommended Friend(s)</string>
+    <string name="search_friends_results">Search Result(s)</string>
+    <string name="date_event">"Date : "</string>
+    <string name="event_date_value">Date</string>
+    <string name="title_activity_friend_profile">Friend Profile</string>
+    <string name="button_friends_create_event">Create Event</string>
+    <string name="create_event_location_title">Location</string>
+    <string name="search_input_friends">Search for added friends</string>
+    <string name="empty"></string>
 
 </resources>

@@ -18,11 +18,10 @@ import com.is306.fitmeet.R;
 
 public class CreateEventActivity extends Activity {
 	
-	Button btnSelectStartDate,btnSelectEndDate, btnSelectStartTime, btnSelectEndTime;
+	Button btnSelectStartDate, btnSelectStartTime, btnSelectEndTime;
 	static final int START_DATE_DIALOG_ID = 0;
-	static final int END_DATE_DIALOG_ID = 1;
-	static final int START_TIME_DIALOG_ID= 2;
-	static final int END_TIME_DIALOG_ID= 3;
+	static final int START_TIME_DIALOG_ID= 1;
+	static final int END_TIME_DIALOG_ID= 2;
 	
 	public  int year,month,day,hour;
 	public String minute;  
@@ -47,8 +46,6 @@ public class CreateEventActivity extends Activity {
 		setupActionBar();
 		
 		btnSelectStartDate=(Button)findViewById(R.id.button_start_date);
-		btnSelectEndDate=(Button)findViewById(R.id.button_end_date);
-		
         btnSelectStartTime=(Button)findViewById(R.id.button_start_time);
         btnSelectEndTime = (Button)findViewById(R.id.button_end_time);
         
@@ -62,14 +59,6 @@ public class CreateEventActivity extends Activity {
             }
         });
         
-        btnSelectEndDate.setOnClickListener(new View.OnClickListener() {
-            
-            @SuppressWarnings("deprecation")
-			public void onClick(View v) {
-                // Show the DatePickerDialog
-                 showDialog(END_DATE_DIALOG_ID);
-            }
-        });
        
         // Set ClickListener on btnSelectTime
         btnSelectStartTime.setOnClickListener(new View.OnClickListener() {
@@ -136,19 +125,7 @@ public class CreateEventActivity extends Activity {
                btnSelectStartDate.setText(+day+"/"+month+"/"+year);
             }
      	};
-     
- 	private DatePickerDialog.OnDateSetListener mEndDateSetListener =
- 	        new DatePickerDialog.OnDateSetListener() {
- 				// the callback received when the user "sets" the Date in the DatePickerDialog
- 	            public void onDateSet(DatePicker view, int yearSelected,
- 	                                  int monthOfYear, int dayOfMonth) {
- 	               year = yearSelected;
- 	               month = monthOfYear;
- 	               day = dayOfMonth;
- 	               // Set the Selected Date in Select date Button
- 	               btnSelectEndDate.setText(+day+"/"+month+"/"+year);
- 	            }
- 	     	};     
+          
 
          	// Register  TimePickerDialog listener                
  	private TimePickerDialog.OnTimeSetListener mStartTimeSetListener =
@@ -213,9 +190,6 @@ public class CreateEventActivity extends Activity {
         	// create a new DatePickerDialog with values you want to show
             return new DatePickerDialog(this,
                         mStartDateSetListener, mYear, mMonth, mDay);
-        case END_DATE_DIALOG_ID:
-        	return new DatePickerDialog(this,
-                        mEndDateSetListener, mYear, mMonth, mDay);
             // create a new TimePickerDialog with values you want to show
         case START_TIME_DIALOG_ID:
             return new TimePickerDialog(this,

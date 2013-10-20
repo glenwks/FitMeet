@@ -9,13 +9,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddFriendsActivity" >
 
-    <SearchView
-        android:id="@+id/searchView1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/recommended_friends_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:queryHint="@string/add_friends_search"
-        android:visibility="visible" >
+        android:text="@string/recommended_friends"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
 
-    </SearchView>
+    <TextView
+        android:id="@+id/no_recommended_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+    <ListView
+        android:id="@+id/recommended_list"
+        android:layout_width="match_parent"
+        android:layout_height="128dp" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/search_friends_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:text="@string/search_friends_results"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/no_search_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+    <ListView
+        android:id="@+id/searched_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 </LinearLayout>

@@ -26,13 +26,19 @@
                 android:hint="@string/event_title"
                 android:paddingBottom="10dp" />
 
-            <EditText
-                android:id="@+id/event_location"
+            <TextView
+                android:id="@+id/create_event_location_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_event_location_title"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Spinner
+                android:id="@+id/location_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/event_location"
-                android:paddingBottom="10dp" />
+                android:prompt="@string/facilities_locations" 
+            	android:entries="@array/location" />
 
             <EditText
                 android:id="@+id/event_friends"
@@ -48,6 +54,28 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
+                    android:id="@+id/date_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.10"
+                    android:text="@string/date_event"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <Button
+                    android:id="@+id/button_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.04"
+                    android:text="@string/event_date_value"
+                    android:textSize="@dimen/date_button" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
                     android:id="@+id/profile_name_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,26 +84,12 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
-                    android:id="@+id/button_start_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.04"
-                    android:text="@string/event_start_date"
-                    android:textSize="@dimen/date_button" />
-
-                <Button
                     android:id="@+id/button_start_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/event_start_time"
                     android:textSize="@dimen/date_button" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
 
                 <TextView
                     android:id="@+id/event_create_to"
@@ -86,20 +100,18 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <Button
-                    android:id="@+id/button_end_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/event_end_date"
-                    android:textSize="@dimen/date_button" />
-
-                <Button
                     android:id="@+id/button_end_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/event_end_time"
                     android:textSize="@dimen/date_button" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
             </LinearLayout>
 
