@@ -9,9 +9,8 @@ package com.is306.fitmeet;
 
 public final class R {
     public static final class array {
-        public static final int events=0x7f060002;
         public static final int facilities=0x7f060000;
-        public static final int location=0x7f060003;
+        public static final int location=0x7f060002;
         public static final int recommended_friends=0x7f060001;
     }
     public static final class attr {
@@ -47,12 +46,12 @@ public final class R {
         public static final int sportssymbols=0x7f020010;
     }
     public static final class id {
-        public static final int about=0x7f090048;
+        public static final int about=0x7f09004b;
         public static final int about_info=0x7f090000;
-        public static final int action_add_event=0x7f09004d;
-        public static final int action_add_friends=0x7f09004e;
-        public static final int action_add_friends_search=0x7f09004c;
-        public static final int action_settings=0x7f09004b;
+        public static final int action_add_event=0x7f090050;
+        public static final int action_add_friends=0x7f090051;
+        public static final int action_add_friends_search=0x7f09004f;
+        public static final int action_settings=0x7f09004e;
         public static final int activity_friend_profile_age=0x7f09001d;
         public static final int activity_friend_profile_age_title=0x7f09001c;
         public static final int activity_friend_profile_gender=0x7f09001b;
@@ -83,25 +82,27 @@ public final class R {
         public static final int event_create_to=0x7f090011;
         public static final int event_friends=0x7f09000c;
         public static final int event_title=0x7f090009;
-        public static final int events_list=0x7f09003e;
-        public static final int facilities_location=0x7f090042;
-        public static final int facilities_location_title=0x7f090041;
-        public static final int facilities_search=0x7f090043;
-        public static final int facilities_type=0x7f090040;
-        public static final int facilities_type_title=0x7f09003f;
-        public static final int faq=0x7f090047;
+        public static final int events_list=0x7f09003f;
+        public static final int facilities_location=0x7f090043;
+        public static final int facilities_location_title=0x7f090042;
+        public static final int facilities_search=0x7f090044;
+        public static final int facilities_type=0x7f090041;
+        public static final int facilities_type_title=0x7f090040;
+        public static final int faq=0x7f09004a;
         public static final int forgot_password=0x7f090024;
         public static final int friendContactBadge=0x7f090017;
         public static final int gender_female=0x7f090037;
         public static final int gender_male=0x7f090038;
         public static final int imageView1=0x7f090001;
         public static final int imgLogo=0x7f09003c;
-        public static final int inputSearch=0x7f090045;
-        public static final int linearLayout1=0x7f090046;
-        public static final int linearLayout2=0x7f090049;
+        public static final int inputSearch=0x7f090046;
+        public static final int linearLayout1=0x7f090049;
+        public static final int linearLayout2=0x7f09004c;
         public static final int listView1=0x7f090030;
         public static final int location_spinner=0x7f09000b;
         public static final int login_password=0x7f090022;
+        public static final int no_events=0x7f09003e;
+        public static final int no_friends_info=0x7f090048;
         public static final int no_recommended_results=0x7f090003;
         public static final int no_search_results=0x7f090006;
         public static final int profile_name_title=0x7f09000f;
@@ -121,9 +122,10 @@ public final class R {
         public static final int remind_me=0x7f090013;
         public static final int scrollView1=0x7f090008;
         public static final int search_friends_results=0x7f090005;
-        public static final int search_input_image=0x7f090044;
+        public static final int search_input_image=0x7f090045;
         public static final int searched_list=0x7f090007;
-        public static final int textView3=0x7f09004a;
+        public static final int textView1=0x7f090047;
+        public static final int textView3=0x7f09004d;
         public static final int update_profile=0x7f09002f;
         public static final int username=0x7f090021;
     }
@@ -144,8 +146,9 @@ public final class R {
         public static final int fragment_calendar=0x7f03000d;
         public static final int fragment_facilities=0x7f03000e;
         public static final int fragment_friends=0x7f03000f;
-        public static final int fragment_plan=0x7f030010;
-        public static final int fragment_settings=0x7f030011;
+        public static final int fragment_no_friends=0x7f030010;
+        public static final int fragment_plan=0x7f030011;
+        public static final int fragment_settings=0x7f030012;
     }
     public static final class menu {
         public static final int about=0x7f080000;
@@ -185,6 +188,7 @@ public final class R {
         public static final int activity_registration_gender_female=0x7f05002f;
         public static final int activity_registration_gender_male=0x7f050030;
         public static final int add_friends_search=0x7f05001f;
+        public static final int add_some_friends=0x7f050054;
         public static final int app_name=0x7f050000;
         public static final int button_friends_create_event=0x7f05004f;
         public static final int button_login=0x7f050025;
@@ -214,6 +218,7 @@ public final class R {
         public static final int frag_plan=0x7f05000d;
         public static final int hello_world=0x7f050003;
         public static final int image_logo_description=0x7f050022;
+        public static final int no_friends=0x7f050053;
         public static final int profile_age=0x7f050045;
         public static final int profile_age_title=0x7f050042;
         public static final int profile_gender=0x7f050046;

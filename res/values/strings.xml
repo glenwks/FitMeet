@@ -90,13 +90,7 @@
         <item>Rafael</item>
         <item>Andy</item>
     </string-array>
-    <string-array name="events">
-        <item>17/10/2013 Basketball @ 7:00pm</item>
-        <item>23/10/2013 Badminton @ 9:00pm</item>
-        <item>27/10/2013 Futsal @ 8:00pm</item>
-        <item>30/10/2013 Tennis @ 6:00pm</item>
-        <item>10/11/2013 Squash @ 10:00pm</item>
-    </string-array>
+
     <string-array name="location">
         <item>Bedok Sports Hall</item>
         <item>Bishan Sports Hall</item>
@@ -133,5 +127,7 @@
     <string name="create_event_location_title">Location</string>
     <string name="search_input_friends">Search for added friends</string>
     <string name="empty"></string>
+    <string name="no_friends">You currently have no friends.</string>
+    <string name="add_some_friends">Add some friends now!</string>
 
 </resources>
