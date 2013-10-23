@@ -49,6 +49,7 @@ public class CreateEventActivity extends Activity {
         btnSelectStartTime=(Button)findViewById(R.id.button_start_time);
         btnSelectEndTime = (Button)findViewById(R.id.button_end_time);
         
+        btnSelectStartDate.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
         // Set ClickListener on btnSelectDate
         btnSelectStartDate.setOnClickListener(new View.OnClickListener() {
            
@@ -122,7 +123,7 @@ public class CreateEventActivity extends Activity {
                month = monthOfYear;
                day = dayOfMonth;
                // Set the Selected Date in Select date Button
-               btnSelectStartDate.setText(+day+"/"+month+"/"+year);
+               btnSelectStartDate.setText(day+"/"+(month+1)+"/"+year);
             }
      	};
           

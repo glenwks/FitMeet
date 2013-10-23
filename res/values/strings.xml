@@ -50,8 +50,8 @@
     <string name="activity_register_gender">Gender :*</string>
     <string name="activity_registration_gender_female">Female</string>
     <string name="activity_registration_gender_male">Male</string>
-    <string name="activity_register_dob">*Date of Birth</string>
-    <string name="activity_register_hobbies">Hobbies</string>
+    <string name="activity_register_dob">Date of Birth :*</string>
+    <string name="activity_register_hobbies">*Hobbies</string>
     <string name="activity_register_button">Register</string>
     <string name="title_activity_faq">FAQ</string>
     <string name="title_activity_about">About</string>
@@ -90,7 +90,6 @@
         <item>Rafael</item>
         <item>Andy</item>
     </string-array>
-
     <string-array name="location">
         <item>Bedok Sports Hall</item>
         <item>Bishan Sports Hall</item>
@@ -99,7 +98,7 @@
         <item>Clementi Sports Hall</item>
         <item>Choa Chu Kang Sports Hall</item>
         <item>Delta Sports Hall</item>
-        <item>Hougang Sports Hal</item>
+        <item>Hougang Sports Hall</item>
         <item>Jurong East Sports Hall</item>
         <item>Jurong West Sports Hall</item>
         <item>Yio Chu Kang Sports Hall</item>
@@ -129,5 +128,28 @@
     <string name="empty"></string>
     <string name="no_friends">You currently have no friends.</string>
     <string name="add_some_friends">Add some friends now!</string>
+    <string name="title_activity_facilities_search">Facilities Search</string>
+    <string name="facilities_search_type">"Facility Type : "</string>
+    <string name="facilities_search_location_title">"Location : "</string>
+    <string name="facilities_search_location_value">"Hougang Sports Hall "</string>
+    <string name="facilities_search_type_value">Basketball Court</string>
+    <string name="facilities_search_date_title">"Date : "</string>
+    <string name="facilities_search_date_value">30/11/2013</string>
+    <string name="facilities_search_contact_information">Contact SSC to book facility @ 61234567.</string>
+    <string name="facilities_search_table_time">Time</string>
+    <string name="facilities_search_table_availability">Availability</string>
+    <string name="title_activity_event">Event</string>
+    <string name="event_view_title">"Title : "</string>
+    <string name="event_view_location">"Location : "</string>
+    <string name="event_view_friends">"Friend(s) : "</string>
+    <string name="event_view_date">"Date : "</string>
+    <string name="event_view_from">"From : "</string>
+    <string name="event_view_to">to</string>
+    <string name="event_view_remind_me">Remind Me :</string>
+    <string name="event_view_remind_friends">"Remind Friends : "</string>
+    <string name="event_view_notes">"Notes : "</string>
+    <string name="event_view_notes_title">"Notes : "</string>
+    <string name="title_activity_add_friend_profile">Profile</string>
+    <string name="button_add_as_friends">Add as friend</string>
 
 </resources>

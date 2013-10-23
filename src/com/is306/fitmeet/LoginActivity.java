@@ -1,5 +1,7 @@
 package com.is306.fitmeet;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +18,11 @@ public class LoginActivity extends Activity {
     String loginid="";
     String pwd="";
     EditText loginid_v,pwd_v;
+    ArrayList<String> userNameList = new ArrayList<String>();
+    
+    public LoginActivity(){
+    	userNameList.add("alexL");
+    }
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +69,13 @@ public class LoginActivity extends Activity {
 	    return super.onKeyDown(keyCode, event);
 	}
 	
-	//public void loginProcess(View view){
-		//Intent intent = new Intent(this, MainActivity.class);
-		//startActivity(intent);
-	//}
+	public void loginProcess(String loginid){
+		for(int i = 0 ; i < userNameList.size(); i++){
+			if(userNameList.get(i).equals(loginid)){
+				
+			}
+		}
+	}
 	
 	public void registerNow(View view){
 		Intent intent = new Intent(this, RegisterActivity.class);

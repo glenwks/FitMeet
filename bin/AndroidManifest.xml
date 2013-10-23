@@ -87,6 +87,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.is306.fitmeet.MainActivity" />
         </activity>
+        <activity
+            android:name="com.is306.fitmeet.FacilitiesSearchActivity"
+            android:label="@string/title_activity_facilities_search"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.EventActivity"
+            android:label="@string/title_activity_event"
+            android:parentActivityName="com.is306.fitmeet.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.is306.fitmeet.AddFriendProfileActivity"
+            android:label="@string/title_activity_add_friend_profile"
+            android:parentActivityName="com.is306.fitmeet.AddFriendsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.is306.fitmeet.AddFriendsActivity" />
+        </activity>
     </application>
 
 </manifest>

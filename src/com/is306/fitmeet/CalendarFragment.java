@@ -2,11 +2,14 @@ package com.is306.fitmeet;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,7 +17,7 @@ import android.widget.TextView;
 import com.is306.fitmeet.R;
 
 
-public class CalendarFragment extends Fragment{
+public class CalendarFragment extends Fragment implements OnItemClickListener{
 	
 	ListView lv;
 	ArrayList<String> eventsList2 = new ArrayList<String>();
@@ -25,7 +28,6 @@ public class CalendarFragment extends Fragment{
 	        "27/10/2013 Futsal @ 8:00pm",
 	        "30/10/2013 Tennis @ 6:00pm",
 	        "10/11/2013 Squash @ 10:00pm",
-	        "test test"
 	};
 	
 	
@@ -49,10 +51,20 @@ public class CalendarFragment extends Fragment{
 			lv = (ListView) getView().findViewById(R.id.events_list);
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, eventsList);
 		    lv.setAdapter(adapter);
+		    lv.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					Intent newActivity = new Intent(getActivity(), EventActivity.class);     
+			        startActivity(newActivity);
+				}
+			});
+		    
 		}
 			
 	}
-	
-	
-	
+
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		
+	}
 }

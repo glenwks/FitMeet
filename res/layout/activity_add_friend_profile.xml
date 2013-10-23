@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".FriendProfileActivity" >
+    tools:context=".AddFriendProfileActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_weight="0.12" >
 
         <QuickContactBadge
-            android:id="@+id/friendContactBadge"
+            android:id="@+id/friendContactBadge2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -30,7 +30,7 @@
         android:layout_weight="0.26" >
 
         <TextView
-            android:id="@+id/activity_friend_profile_name_title"
+            android:id="@+id/activity_add_friend_profile_name_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,7 +39,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/activity_friend_profile_name"
+            android:id="@+id/activity_add_friend_profile_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
         android:layout_weight="0.26" >
 
         <TextView
-            android:id="@+id/activity_friend_profile_gender_title"
+            android:id="@+id/activity_add_friend_profile_gender_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,7 +61,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/activity_friend_profile_gender"
+            android:id="@+id/activity_add_friend_profile_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -75,7 +75,7 @@
         android:layout_weight="0.26" >
 
         <TextView
-            android:id="@+id/activity_friend_profile_age_title"
+            android:id="@+id/activity_add_friend_profile_age_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -84,7 +84,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/activity_friend_profile_age"
+            android:id="@+id/activity_add_friend_profile_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,9 +97,10 @@
         android:layout_weight="1" >
 
         <TextView
-            android:id="@+id/activity_friend_profile_hobbies_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/activity_add_friend_profile_hobbies_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/profile_hobbies_title"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
@@ -109,10 +110,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:text="@string/profile_hobbies" >
+            android:ems="10" >
         </TextView>
-
     </LinearLayout>
 
     <Button
@@ -120,6 +119,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
-        android:text="@string/button_friends_create_event" />
+        android:text="@string/button_add_as_friends" />
 
 </LinearLayout>

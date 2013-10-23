@@ -98,8 +98,9 @@ public class FriendsFragment extends ListFragment{
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// do something with the data
-		Intent newActivity;
-		switch( position )
+		Intent newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
+        startActivity(newActivity);
+		/*switch( position )
 	    	{
 		       case 0:  
 		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
@@ -121,7 +122,7 @@ public class FriendsFragment extends ListFragment{
 		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
 		           startActivity(newActivity);
 		           break;
-		    }
+		    }*/
 	}
 
 

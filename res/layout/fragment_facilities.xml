@@ -52,16 +52,12 @@
                 android:text="@string/facilities_date"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <EditText
-                android:id="@+id/editText1"
-                android:layout_width="0dp"
+            <Button
+                android:id="@+id/facilities_button_date"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="date" >
-
-                <requestFocus />
-            </EditText>
+                android:text="Button" />
 
         </LinearLayout>
 
@@ -75,7 +71,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:text="@string/action_search" />
+                android:text="@string/action_search"
+                 />
+            <!-- android:onClick="searchFacilities" -->
 
         </RelativeLayout>
 

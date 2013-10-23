@@ -108,7 +108,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/activity_add_friend_profile_hobbies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
