@@ -28,30 +28,9 @@
     <ListView
         android:id="@+id/recommended_list"
         android:layout_width="match_parent"
-        android:layout_height="128dp" >
+        android:layout_height="match_parent" >
     </ListView>
 
-    <TextView
-        android:id="@+id/search_friends_results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:text="@string/search_friends_results"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/no_search_results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/empty"
-        android:textSize="12sp"
-        android:textStyle="italic" />
-
-    <ListView
-        android:id="@+id/searched_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+    
 
 </LinearLayout>

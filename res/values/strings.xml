@@ -151,5 +151,7 @@
     <string name="event_view_notes_title">"Notes : "</string>
     <string name="title_activity_add_friend_profile">Profile</string>
     <string name="button_add_as_friends">Add as friend</string>
+    <string name="title_activity_search_friend">Search Friends</string>
+    <string name="search_hint">Search for Friends</string>
 
 </resources>
