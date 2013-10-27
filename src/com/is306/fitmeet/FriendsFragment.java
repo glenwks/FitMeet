@@ -1,5 +1,7 @@
 package com.is306.fitmeet;
 
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -20,26 +22,15 @@ public class FriendsFragment extends ListFragment{
 	ArrayAdapter<String> adapter;
 	private boolean haveFriends = true;
 	
-	String friendsList[] = new String[]{
-	        "John Tan",
-	        "Sue May",
-	        "KES",
-	        "Fariq",
-	        "Kellie",
-	        "Roger",
-	        "Tim",
-	        "Yous",
-	        "Sihui",
-	        "Lucas",
-	        "Rachel"
-	    };
+	ArrayList<User> friendsList = UsersDAO.friendsUserPool;
+	ArrayList<String> friendsListAsString = new ArrayList<String>();
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	        Bundle savedInstanceState) {
 			setHasOptionsMenu(true);
 			
-			if(friendsList.length == 0){
+			if(friendsList.size() == 0){
 				haveFriends=false;
 				return inflater.inflate(R.layout.fragment_no_friends, container, false);
 			}else{
@@ -61,11 +52,14 @@ public class FriendsFragment extends ListFragment{
 	public void onActivityCreated(Bundle savedInstanceState){
 		
 		super.onActivityCreated(savedInstanceState);
-		
+		friendsList = UsersDAO.friendsUserPool;
+		friendsListAsString = UsersDAO.friendsAsString(friendsList);
 		if(haveFriends==true){
+			
+			
 			listView = (ListView)getActivity().findViewById(android.R.id.list);
 			/** Creating array adapter to set data in listview */
-	    	adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, friendsList);
+	    	adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, friendsListAsString);
 	    	inputSearch = (EditText) getActivity().findViewById(R.id.inputSearch);
 	    	
 	    	/** Setting the array adapter to the listview */
@@ -98,31 +92,9 @@ public class FriendsFragment extends ListFragment{
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// do something with the data
+		UsersDAO.friendChosen = UsersDAO.friendsUserPool.get(position);
 		Intent newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
         startActivity(newActivity);
-		/*switch( position )
-	    	{
-		       case 0:  
-		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
-		           startActivity(newActivity);
-		           break;
-		       case 1:  
-		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
-	               startActivity(newActivity);
-	               break;
-		       case 2:  
-		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
-		           startActivity(newActivity);
-		           break;
-		       case 3: 
-		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
-		           startActivity(newActivity);
-		           break;
-		       case 4:  
-		    	   newActivity = new Intent(getActivity(), FriendProfileActivity.class);     
-		           startActivity(newActivity);
-		           break;
-		    }*/
 	}
 
 

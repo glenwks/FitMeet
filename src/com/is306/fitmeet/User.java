@@ -70,5 +70,18 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String getHobbiesAsString(){
+		
+		String hobbiesAsString="";
+		for(int i=0; i<hobbies.size();i++){
+			if(i==0){
+				hobbiesAsString = hobbies.get(i);
+			}else{
+				hobbiesAsString = hobbiesAsString+", "+ hobbies.get(i);
+			}
+		}
+		return hobbiesAsString;
+	}
 
 }

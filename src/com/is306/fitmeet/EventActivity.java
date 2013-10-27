@@ -4,16 +4,47 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class EventActivity extends Activity {
-
+	
+	TextView title, location, friends, date, startTime, endTime, notes, remindMe, remindFriends;
+	Event event = EventsDAO.currentEvent;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		title =(TextView)findViewById(R.id.event_view_title);
+		title.setText(event.getTitle());
+		location =(TextView)findViewById(R.id.event_view_location);
+		location.setText(event.getLocation());
+		friends =(TextView)findViewById(R.id.event_view_friend);
+		friends.setText(event.getFriends());
+		date =(TextView)findViewById(R.id.event_view_date);
+		date.setText(event.getDate());
+		startTime =(TextView)findViewById(R.id.event_view_start_time);
+		startTime.setText(event.getStartTime());
+		endTime=(TextView)findViewById(R.id.event_view_end_time);
+		endTime.setText(event.getEndTime());
+		notes =(TextView)findViewById(R.id.event_view_notes);
+		notes.setText(event.getNotes());
+		remindMe =(TextView)findViewById(R.id.event_view_remind_me_val);
+		if(event.isRemindMe()){
+			remindMe.setText("Yes");
+		}else{
+			remindMe.setText("No");
+		}
+		remindFriends =(TextView)findViewById(R.id.event_view_remind_friend_val);
+		if(event.isRemindFriend()){
+			remindFriends.setText("Yes");
+		}else{
+			remindFriends.setText("No");
+		}
+		
 	}
 
 	/**

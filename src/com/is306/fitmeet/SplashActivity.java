@@ -11,6 +11,9 @@ public class SplashActivity extends Activity {
  
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
+    
+    public SplashActivity(){
+    }
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {

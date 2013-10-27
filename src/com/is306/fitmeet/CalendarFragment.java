@@ -20,15 +20,16 @@ import com.is306.fitmeet.R;
 public class CalendarFragment extends Fragment implements OnItemClickListener{
 	
 	ListView lv;
-	ArrayList<String> eventsList2 = new ArrayList<String>();
+	ArrayList<Event> eventLists = EventsDAO.eventPool;
+	ArrayList<String> eventsList = EventsDAO.eventAsString();
 	TextView tv;
-	String[] eventsList = new String[]{
+	/*String[] eventsList = new String[]{
 			"17/10/2013 Basketball @ 7:00pm",
 	        "23/10/2013 Badminton @ 9:00pm",
 	        "27/10/2013 Futsal @ 8:00pm",
 	        "30/10/2013 Tennis @ 6:00pm",
 	        "10/11/2013 Squash @ 10:00pm",
-	};
+	};*/
 	
 	
 	
@@ -44,7 +45,7 @@ public class CalendarFragment extends Fragment implements OnItemClickListener{
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
 		tv = (TextView) getActivity().findViewById(R.id.no_events);
-		if(eventsList.length == 0){
+		if(eventsList.size() == 0){
 			tv.setText("No upcoming events");
 		}else{
 			tv.setText("");
@@ -54,6 +55,7 @@ public class CalendarFragment extends Fragment implements OnItemClickListener{
 		    lv.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
+					EventsDAO.currentEvent = eventLists.get(position);
 					Intent newActivity = new Intent(getActivity(), EventActivity.class);     
 			        startActivity(newActivity);
 				}

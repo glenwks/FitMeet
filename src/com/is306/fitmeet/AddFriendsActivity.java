@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-//import android.support.v4.app.NavUtils;
+import android.widget.AdapterView.OnItemClickListener;
 import com.is306.fitmeet.R;
 
 public class AddFriendsActivity extends Activity {
@@ -18,15 +22,14 @@ public class AddFriendsActivity extends Activity {
 	TextView noSearchResults;
 	ListView recommendedListView;
 	ListView searchResults;
+	
 	ArrayAdapter<String> adapterRecommend;
 	ArrayAdapter<String> searchRslt;
 	
-	String[] recommendedFriends = new String[]{
-			"test",
-			"test1",
-			"test2",
-			"test3"			
-	};
+	ArrayList<String> recommendedFriends = UsersDAO.friendsAsString(UsersDAO.recommendedUserPool);
+	Activity activity = this;
+	/*String[] recommendedFriends = new String[]{		
+	};*/
 	
 	ArrayList<String> searchedResults = new ArrayList<String>();
 
@@ -39,13 +42,21 @@ public class AddFriendsActivity extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		if(recommendedFriends.length==0){
+		if(recommendedFriends.size()==0){
 			noRecommendation.setText("No recommendations found");
 		}else{
 			noRecommendation.setText("");
 			recommendedListView = (ListView) this.findViewById(R.id.recommended_list);
 			adapterRecommend = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, recommendedFriends);
 			recommendedListView.setAdapter(adapterRecommend);
+			recommendedListView.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					UsersDAO.friendChosen = UsersDAO.recommendedUserPool.get(position);
+					Intent newActivity = new Intent(activity, AddFriendProfileActivity.class);     
+			        startActivity(newActivity);
+				}
+			});
 		}
 		
 		if(searchedResults.size()==0){
@@ -55,6 +66,14 @@ public class AddFriendsActivity extends Activity {
 			searchResults = (ListView) this.findViewById(R.id.searched_list);
 			searchRslt = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, searchedResults);
 			searchResults.setAdapter(searchRslt);
+			searchResults.setOnItemClickListener(new OnItemClickListener() {
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					UsersDAO.friendChosen = UsersDAO.recommendedUserPool.get(position);
+					Intent newActivity = new Intent(activity, AddFriendProfileActivity.class);     
+			        startActivity(newActivity);
+				}
+			});
 		}
 		
 	}
@@ -86,7 +105,7 @@ public class AddFriendsActivity extends Activity {
 			//
 			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
 			//
-			onBackPressed();
+			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

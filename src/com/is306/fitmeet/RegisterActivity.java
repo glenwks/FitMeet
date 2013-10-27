@@ -124,15 +124,12 @@ public class RegisterActivity extends Activity {
 		passwordVal = password.getText().toString();
 		confirmPassVal = confirmPass.getText().toString();
 		profileNameVal = profileName.getText().toString();
-		if(hobbies.getText().toString().trim().length()==0){
-			hobbiesVal.add(hobbies.getText().toString());
-		}
 		int selectedGender = genderGroup.getCheckedRadioButtonId();
 		gender = (RadioButton)findViewById(selectedGender);
 		genderVal = gender.getText().toString();
 		dobVal = btnSelectDOB.getText().toString();
 		
-		if(usernameVal.trim().length()==0||passwordVal.trim().length()==0||profileNameVal.trim().length()==0){
+		if(usernameVal.trim().length()==0||passwordVal.trim().length()==0||profileNameVal.trim().length()==0||hobbies.getText().toString().trim().length()==0){
 			Toast.makeText(RegisterActivity.this, "Please fill up all neccessary fields.", Toast.LENGTH_SHORT).show();
 		}else if(year>mYear){
 			Toast.makeText(RegisterActivity.this, "Invalid Date of birth.", Toast.LENGTH_SHORT).show();
@@ -148,11 +145,22 @@ public class RegisterActivity extends Activity {
 			Toast.makeText(RegisterActivity.this, "Password does not match. Re-enter password.", Toast.LENGTH_SHORT).show();
 		}else{
 			age = mYear - year;
+			hobbiesVal.add(hobbies.getText().toString());
 			UsersDAO.loginUserPool.add(new User(usernameVal,passwordVal,profileNameVal,genderVal,age,hobbiesVal));
 			Toast.makeText(RegisterActivity.this, "Registration Successful! Proceed to login.", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 		}	
+	}
+	
+	public boolean checkUserAvaliable(String username){
+		for(int i=0;i<UsersDAO.loginUserPool.size();i++){
+			if(UsersDAO.loginUserPool.get(i).equals(username)){
+				Toast.makeText(RegisterActivity.this, "Username taken. Please choose another username.", Toast.LENGTH_SHORT).show();
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

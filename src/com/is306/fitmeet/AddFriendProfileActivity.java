@@ -1,12 +1,21 @@
 package com.is306.fitmeet;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
 public class AddFriendProfileActivity extends Activity {
+	TextView name, gender, age, hobbies;
+	ArrayList<String> hobbiesList = new ArrayList<String>();
+	User user;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +23,16 @@ public class AddFriendProfileActivity extends Activity {
 		setContentView(R.layout.activity_add_friend_profile);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		user = UsersDAO.friendChosen;
+		setTitle(user.getUsername()+"'s Profile");
+		name = (TextView)this.findViewById(R.id.activity_add_friend_profile_name);
+		name.setText(user.getName());
+		gender =(TextView) this.findViewById(R.id.activity_add_friend_profile_gender);
+		gender.setText(user.getGender());
+		age = (TextView)this.findViewById(R.id.activity_add_friend_profile_age);
+		age.setText(""+user.getAge());
+		hobbies=(TextView)this.findViewById(R.id.activity_add_friend_profile_hobbies);
+		hobbies.setText(user.getHobbiesAsString());
 	}
 
 	/**
@@ -47,6 +66,13 @@ public class AddFriendProfileActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void addAsFriend(View view){
+		UsersDAO.addFriendToList(user);
+		Toast.makeText(AddFriendProfileActivity.this, "You and "+user.getUsername() +" are now friends.", Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(this, AddFriendsActivity.class);
+		startActivity(intent);
 	}
 
 }

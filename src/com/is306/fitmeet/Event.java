@@ -1,11 +1,9 @@
 package com.is306.fitmeet;
 
-import java.util.ArrayList;
-
 public class Event {
 	private String title;
 	private String location;
-	private ArrayList<User> friends;
+	private String friends;
 	
 	private String date;
 	private String startTime;
@@ -15,6 +13,22 @@ public class Event {
 	private boolean remindFriend;
 
 	private String notes;
+	
+	public Event(){
+		
+	}
+	
+	public Event(String title, String location, String friends, String date, String startTime, String endTime, boolean remindMe, boolean remindFriend, String notes){
+		this.title = title;
+		this.location=location;
+		this.friends= friends;
+		this.date =date;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.remindMe =remindMe;
+		this.remindFriend=remindFriend;
+		this.notes=notes;
+	}
 
 	public String getTitle() {
 		return title;
@@ -32,11 +46,11 @@ public class Event {
 		this.location = location;
 	}
 
-	public ArrayList<User> getFriends() {
+	public String getFriends() {
 		return friends;
 	}
 
-	public void setFriends(ArrayList<User> friends) {
+	public void setFriends(String friends) {
 		this.friends = friends;
 	}
 

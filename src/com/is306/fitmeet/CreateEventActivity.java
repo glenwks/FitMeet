@@ -1,24 +1,34 @@
 package com.is306.fitmeet;
 
 import java.util.Calendar;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
 import com.is306.fitmeet.R;
 
 
 public class CreateEventActivity extends Activity {
 	
+	Spinner location;
+	EditText title, friends, notes;
+	Switch remindMe, remindFriend;
 	Button btnSelectStartDate, btnSelectStartTime, btnSelectEndTime;
+	
 	static final int START_DATE_DIALOG_ID = 0;
 	static final int START_TIME_DIALOG_ID= 1;
 	static final int END_TIME_DIALOG_ID= 2;
@@ -27,6 +37,9 @@ public class CreateEventActivity extends Activity {
 	public String minute;  
 	public  int yearSelected,monthSelected,daySelected,hourSelected,minuteSelected;
 	private int mYear, mMonth, mDay, mHour, mMinute; 
+	
+	public boolean remindMeIsChecked = false;
+	public boolean remindFriendIsChecked = false;
 	
 	public CreateEventActivity(){
 		final Calendar c = Calendar.getInstance();
@@ -44,6 +57,33 @@ public class CreateEventActivity extends Activity {
 		setContentView(R.layout.activity_create_event);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		location=(Spinner)findViewById(R.id.location_spinner);
+		
+		title=(EditText)findViewById(R.id.event_title);
+		friends=(EditText)findViewById(R.id.event_friends);
+		notes=(EditText)findViewById(R.id.add_note);
+		
+		remindMe=(Switch)findViewById(R.id.remind_me);
+		remindMe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		        if (isChecked) {
+		        	remindMeIsChecked = true;
+		        } else {
+		        	remindMeIsChecked = false;
+		        }
+		    }
+		});
+		remindFriend=(Switch)findViewById(R.id.remind_friends);
+		remindFriend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		        if (isChecked) {
+		        	remindFriendIsChecked = true;
+		        } else {
+		        	remindFriendIsChecked = false;
+		        }
+		    }
+		});
 		
 		btnSelectStartDate=(Button)findViewById(R.id.button_start_date);
         btnSelectStartTime=(Button)findViewById(R.id.button_start_time);
@@ -201,6 +241,28 @@ public class CreateEventActivity extends Activity {
                     mEndTimeSetListener, mHour, mMinute, false);
         }
         return null;
+    }
+    
+    public void createEvent(View view){
+    	if(title.getText().toString().trim().length()==0||friends.getText().toString().trim().length()==0){
+    		Toast.makeText(CreateEventActivity.this, "Please ensure that title and friends are filled.", Toast.LENGTH_SHORT).show();
+		}else if(btnSelectStartTime.getText().toString().equals("Start Time")||btnSelectEndTime.getText().toString().equals("End Time")){
+			Toast.makeText(CreateEventActivity.this, "Please input start time and end time.", Toast.LENGTH_SHORT).show();
+		}else{
+			String titleString =title.getText().toString();
+			String locationString = location.getSelectedItem().toString();
+			String friendsString = friends.getText().toString();
+			String dateString =btnSelectStartDate.getText().toString();
+			String startTimeString = btnSelectStartTime.getText().toString();
+			String endTimeString = btnSelectEndTime.getText().toString();
+			String notesString = notes.getText().toString();
+			
+			Event event = new Event(titleString, locationString, friendsString, dateString, startTimeString, endTimeString, remindMeIsChecked, remindFriendIsChecked, notesString);
+			EventsDAO.eventPool.add(event);
+			Toast.makeText(CreateEventActivity.this, "Event Created", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(this, MainActivity.class);
+			startActivity(intent);
+		}
     }
 
 }
