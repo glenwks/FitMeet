@@ -1,5 +1,7 @@
 package com.is306.fitmeet;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.SearchManager;
@@ -7,12 +9,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
 public class SearchFriendActivity extends Activity {
+	ListView lv;
 	TextView tv;
+	Activity activity = this;
+	
+	ArrayList<String> searchList = new ArrayList<String>();
+	ArrayAdapter<String> adapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -20,6 +33,7 @@ public class SearchFriendActivity extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		// Get the intent, verify the action and get the query
+		
 	    Intent intent = getIntent();
 	    if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 	      String query = intent.getStringExtra(SearchManager.QUERY);
@@ -29,8 +43,26 @@ public class SearchFriendActivity extends Activity {
 
 	private void doMySearch(String query) {
 		// TODO Auto-generated method stub
-		tv = (TextView) findViewById(R.id.search_test);
-		tv.setText(query);
+		UsersDAO.searchFriendList(query);
+		searchList = UsersDAO.friendsAsString(UsersDAO.searchUserPool);
+		lv = (ListView) findViewById(R.id.search_friends_list);
+		tv = (TextView) findViewById(R.id.no_search_results_search);
+		if(searchList.size()==0){
+			tv.setText("No search results found.");
+		}else{
+			tv.setText("");
+		}
+		adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, searchList);
+		lv.setAdapter(adapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				UsersDAO.friendChosen = UsersDAO.searchUserPool.get(position);
+				Intent newActivity = new Intent(activity, AddFriendProfileActivity.class);     
+		        startActivity(newActivity);
+			}
+		});
+		
 	}
 
 	/**

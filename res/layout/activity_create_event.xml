@@ -136,15 +136,15 @@
                 android:ems="10"
                 android:hint="@string/event_add_note"
                 android:inputType="textMultiLine"
-                android:paddingBottom="70dp"
                 android:paddingTop="20dp" />
 
             <Button
                 android:id="@+id/event_add_event"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/event_add_event"
-                android:onClick="createEvent" />
+                android:onClick="createEvent"
+                android:text="@string/event_add_event" />
+
         </LinearLayout>
 
     </ScrollView>

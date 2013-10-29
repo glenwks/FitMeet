@@ -6,6 +6,7 @@ public class UsersDAO {
 	static ArrayList<User> loginUserPool = new ArrayList<User>();
 	static ArrayList<User> recommendedUserPool = new ArrayList<User>();
 	static ArrayList<User> friendsUserPool = new ArrayList<User>();
+	static ArrayList<User> searchUserPool = new ArrayList<User>();
 	
 	static User currentUser;
 	static User friendChosen;
@@ -38,6 +39,15 @@ public class UsersDAO {
 			if(recommendedUserPool.get(i).getUsername().equals(user.getUsername())){
 				recommendedUserPool.remove(i);
 				friendsUserPool.add(user);
+			}
+		}
+	}
+	
+	public static void searchFriendList(String query){
+		searchUserPool.clear();
+		for(int i=0; i<recommendedUserPool.size();i++){
+			if(recommendedUserPool.get(i).getUsername().equalsIgnoreCase(query) || recommendedUserPool.get(i).getName().equalsIgnoreCase(query)){
+				searchUserPool.add(recommendedUserPool.get(i));
 			}
 		}
 	}

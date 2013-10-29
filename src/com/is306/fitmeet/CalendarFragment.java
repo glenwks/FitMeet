@@ -50,7 +50,7 @@ public class CalendarFragment extends Fragment implements OnItemClickListener{
 		}else{
 			tv.setText("");
 			lv = (ListView) getView().findViewById(R.id.events_list);
-			ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, eventsList);
+			EventAdapter adapter = new EventAdapter(getActivity(),R.layout.event_list_row, eventLists);
 		    lv.setAdapter(adapter);
 		    lv.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View view,
